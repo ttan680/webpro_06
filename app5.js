@@ -67,16 +67,11 @@ app.get("/janken2", (req, res) => {
     let hand = req.query.hand;
     let win = Number(req.query.win);
     let total = Number(req.query.total);
-
-    // CPUの手をランダムに決める
     const num = Math.floor(Math.random() * 3 + 1);
     let cpu = '';
-
     if (num == 1) cpu = 'グー';
     else if (num == 2) cpu = 'チョキ';
     else cpu = 'パー';
-
-    // 勝敗を判定する
     let judgement = '';
 
     if (hand == cpu) {
@@ -91,11 +86,7 @@ app.get("/janken2", (req, res) => {
     } else {
         judgement = '負け';
     }
-
-    // 対戦数を増やす
     total += 1;
-
-    // 結果を表示するためのデータ
     const display = {
         your: hand,
         cpu: cpu,
