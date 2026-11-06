@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>猫の一覧</title>
+</head>
+<body>
+    <h2>猫の一覧</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>名前</th>
+            <th>出身</th>
+        </tr>
+        <% for( let row of data ) { %>
+            <tr>
+                <td><%= row.id %></td>
+                <td><%= row.name %></td>
+                <td><%= row.from %></td>
+            </tr>
+        <% } %>
+    </table>
+</body>
+</html>

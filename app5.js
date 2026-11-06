@@ -17,6 +17,28 @@ app.get("/keiyo", (req, res) => {
  res.render('db1', { data: station });
 });
 
+let cats = [
+ { id: 1, name: "マンチカン", from: "アメリカ合衆国" },
+ { id: 2, name: "スコティッシュフォールド", from: "イギリス" },
+ { id: 3, name: "サイベリアン", from: "ロシア" },
+];
+
+app.get("/cats", (req, res) => {
+    res.render('cats_db2', { data: cats });
+});
+
+app.get("/cats_add", (req, res) => {
+    let id = Number(req.query.id);
+    let name = req.query.name;
+    let from = req.query.from;
+
+    let newdata = { id: id, name: name, from: from };
+    cats.push(newdata);
+
+    res.render('cats_db2', { data: cats });
+});
+
+
 app.get("/keiyo_add", (req, res) => {
  let id = req.query.id;
  let code = req.query.code;
